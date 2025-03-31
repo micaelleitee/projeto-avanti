@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hover-button: #004cd2;
+  --button: #005cff;
+  --card: #00264e;
+
+  --font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+}

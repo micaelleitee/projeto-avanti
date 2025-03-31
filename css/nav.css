@@ -1,0 +1,133 @@
+.box-price {
+  background-color: #6220c1;
+  border-radius: 4px;
+  width: 4rem;
+  height: 1rem;
+}
+
+.top-bar {
+  background-color: #005cff;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  font-size: 14px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 30px;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo-avanti {
+  width: 152px;
+  height: 27px;
+  top: 52px;
+  left: 330px;
+}
+
+.input-text-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 37.5rem;
+  height: 2.5rem;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  padding-inline: 1.5rem;
+}
+.search-bar {
+  border: none;
+  width: 100%;
+  &::placeholder {
+    font-family: var(--font-family);
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 100%;
+  }
+  &:focus::placeholder {
+    color: transparent;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.search-input {
+  cursor: pointer;
+}
+
+.user-login {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 14px;
+}
+.content-user {
+  display: flex;
+  flex-direction:row;
+  gap: 1.5rem;
+}
+
+.banner {
+  position: relative;
+  margin-top: 60px;
+  text-align: center;
+}
+.banner img {
+  width: 100%;
+  height: auto;
+}
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+.banner-text h1 {
+  font-size: 48px;
+}
+.banner-text h2 {
+  font-size: 36px;
+  color: blue;
+}
+.lancamentos {
+  padding: 40px;
+  text-align: center;
+}
+.product-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.product {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+}
+.prev,
+.next {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
