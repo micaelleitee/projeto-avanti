@@ -1,0 +1,56 @@
+.banner {
+  position: relative;
+  text-align: center;
+}
+.img-background {
+  position: relative;
+  width: 1920px;
+  height: 510px;
+  top: 148px;
+}
+
+.img-cadeira {
+  position: absolute;
+  width: 685px;
+  height: 510px;
+  top: 148px;
+  left: 315px;
+}
+
+.banner-text {
+  position: absolute;
+  top: 291px;
+  left: 948px;
+  gap: 12px;
+  & strong {
+    font-family: "Nunito";
+    font-size: 100px;
+    font-weight: 700;
+    line-height: 100%;
+    text-transform: uppercase;
+  }
+  & span {
+    font-family: "Nunito";
+    font-weight: 300;
+    font-size: 100px;
+    line-height: 100%;
+    text-transform: uppercase;
+  }
+
+  & p {
+    font-family: "Nunito";
+    font-weight: 700;
+    font-size: 25px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #005cff;
+  }
+
+  & h2 {
+    font-family: "Nunito";
+    font-weight: 700;
+    font-size: 60px;
+    text-transform: uppercase;
+    color: #005cff;
+  }
+}
