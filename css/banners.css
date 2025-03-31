@@ -3,7 +3,6 @@
   text-align: center;
 }
 .img-background {
-  position: relative;
   width: 1920px;
   height: 510px;
   top: 148px;
@@ -13,13 +12,13 @@
   position: absolute;
   width: 685px;
   height: 510px;
-  top: 148px;
+  top: 0;
   left: 315px;
 }
 
 .banner-text {
   position: absolute;
-  top: 291px;
+  top: 25%;
   left: 948px;
   gap: 12px;
   & strong {
