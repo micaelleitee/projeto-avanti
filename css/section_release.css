@@ -81,7 +81,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  justify-items: center;
   position: absolute;
   background: white;
   border: 0.1rem solid #005cff;
@@ -94,13 +93,13 @@
   z-index: 1;
   top: 50%;
   transform: translateY(-50%);
+  padding: 0;
 }
 
 .button-next-carousel {
   display: flex;
   justify-content: center;
   align-items: center;
-  justify-items: center;
   position: absolute;
   background: white;
   border: 0.1rem solid #005cff;
@@ -113,6 +112,7 @@
   right: -1.5%;
   top: 50%;
   transform: translateY(-50%);
+  padding: 0;
 }
 
 .price-carousel {
