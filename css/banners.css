@@ -2,18 +2,23 @@
   position: relative;
   text-align: center;
 }
-.img-background {
-  width: 1920px;
-  height: 510px;
-  top: 148px;
-}
 
-.img-cadeira {
-  position: absolute;
-  width: 685px;
-  height: 510px;
-  top: 0;
-  left: 315px;
+.img-banners {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+
+  .img-background {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .img-cadeira {
+    position: absolute;
+    height: 510px;
+    width: auto;
+    left: 15%;
+  }
 }
 
 .banner-text {

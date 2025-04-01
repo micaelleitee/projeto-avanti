@@ -99,30 +99,11 @@
   padding: 40px;
   text-align: center;
 }
-.product-carousel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-}
-.product {
-  background: white;
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 5px;
-}
-.prev,
-.next {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-}
+
 
 .all-categories {
   & strong {
     line-height: 22px;
     font-weight: 400;
   }
-  
 }

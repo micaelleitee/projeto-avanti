@@ -17,7 +17,6 @@ body {
 
 .flex {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
@@ -32,7 +31,9 @@ body {
   justify-content: center;
   align-items: center;
 }
-
+.gap-05{
+  gap: 0.5rem;
+}
 .gap-45 {
   gap: 45px;
 }
