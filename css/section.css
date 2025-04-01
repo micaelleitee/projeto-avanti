@@ -1,0 +1,14 @@
+.content-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.lancamentos {
+  width: 78.6rem;
+}
+
+.content-release {
+  display: flex;
+  justify-content: space-between;
+}
