@@ -1,11 +1,14 @@
 .banner {
   position: relative;
   text-align: center;
+  width: 100%;
+  height: 31.25rem;
 }
 
 .img-banners {
   overflow: hidden;
   position: relative;
+  width: 100%;
   height: 100%;
 
   .img-background {
@@ -15,9 +18,11 @@
   }
   .img-cadeira {
     position: absolute;
-    height: 510px;
+    height: 100%;
     width: auto;
     left: 15%;
+    bottom: 0;
+    object-fit: contain;
   }
 }
 
