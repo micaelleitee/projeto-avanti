@@ -1,0 +1,109 @@
+.newsletter {
+  gap: 1.5rem;
+}
+
+.title-newsletter {
+  & span {
+    font-family: "Nunito Sans";
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-align: center;
+  }
+
+  & span:nth-child(2) {
+    color: #005cff;
+  }
+}
+
+.box-newsletter {
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 4rem 7.18rem;
+  background-color: #dedede;
+  display: flex;
+  gap: 1.5rem;
+
+  & input[type="text"] {
+    border: none;
+    border-radius: 0.5rem;
+    width: 17.5rem;
+    height: 3rem;
+    padding-inline: 1.5rem;
+  }
+
+  & input[type="email"] {
+    border: none;
+    border-radius: 0.5rem;
+    width: 17.5rem;
+    height: 3rem;
+    padding-inline: 1.5rem;
+  }
+
+  & input[type="text"]::placeholder {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 0.87rem;
+    font-weight: 400;
+    color: #303030;
+  }
+  & input[type="text"]:focus-visible {
+    outline: 2px solid var(--button);
+  }
+
+  & input[type="email"]::placeholder {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 0.87rem;
+    font-weight: 400;
+    color: #303030;
+  }
+  & input[type="email"]:focus-visible {
+    outline: 2px solid var(--button);
+  }
+
+  & span {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    line-height: 100%;
+    color: #656565;
+  }
+
+  & input[type="checkbox"] {
+    background-color: white;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.25rem;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+
+  & input[type="checkbox"]:checked {
+    appearance: auto;
+    background-color: #005cff;
+    border-radius: 0.25rem;
+  }
+
+  & a {
+    color: #656565;
+  }
+
+  & input[type="button"] {
+    background-color: var(--button);
+    border: none;
+    border-radius: 0.5rem;
+    width: 7.5rem;
+    height: 3rem;
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--hover-button);
+    }
+  }
+}

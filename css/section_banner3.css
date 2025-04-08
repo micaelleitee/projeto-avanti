@@ -1,0 +1,22 @@
+.img-banner-3 {
+  position: relative;
+  & img {
+    width: 100%;
+  }
+  & span {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 8.25rem;
+    width: 100%;
+    background-color: #005cff;
+    color: white;
+    font-family: "Nunito";
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 140%;
+  }
+}
