@@ -100,10 +100,33 @@
   text-align: center;
 }
 
-
 .all-categories {
   & strong {
     line-height: 22px;
     font-weight: 400;
+  }
+}
+
+.cart-container {
+  position: relative;
+  display: inline-block;
+
+  & .cart-count {
+    position: absolute;
+    background-color: #005cff;
+    top: -8px;
+    right: -8px;
+    width: 1.31rem;
+    height: 1.31rem;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    line-height: 0.87rem;
   }
 }
