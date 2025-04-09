@@ -110,6 +110,7 @@
 .cart-container {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 
   & .cart-count {
     position: absolute;
@@ -128,5 +129,67 @@
     font-weight: 700;
     font-size: 0.75rem;
     line-height: 0.87rem;
+  }
+}
+
+.categories-hover-all {
+  cursor: pointer;
+
+  &:hover {
+    color: #005cff;
+    stroke: #005cff;
+    & svg {
+      stroke: #005cff;
+    }
+  }
+}
+
+.hover-container-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 78.81rem;
+  height: 20.56rem;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px -1px #0000001a;
+  margin-top: 1rem;
+}
+
+.container-rolling {
+  display: flex;
+  justify-content: center;
+  padding: 1.25rem 1.7rem;
+  width: 14.6rem;
+  height: 20.5rem;
+  background: #f5f5f5;
+
+  & ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  & li {
+    width: 11.8rem;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & svg {
+      fill: #303030;
+    }
+  }
+
+  & li:hover {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    font-style: bold;
+    color: #005cff;
+  }
+
+  & li:hover svg {
+    fill: #005cff;
   }
 }
