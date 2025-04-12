@@ -28,8 +28,6 @@ body {
 .row {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 .gap-05{
   gap: 0.5rem;
@@ -48,4 +46,6 @@ header {
   flex-direction: column;
   width: 100%;
   z-index: 1000;
+  align-items: center;
 }
+
