@@ -163,6 +163,7 @@
 
 .hover-container-nav {
   position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   width: 78.81rem;

@@ -1,11 +1,13 @@
 .mega-menu-container {
   width: 100%;
-  /* display: none; */
-  z-index: 1000;
+  height: 100%;
   font-family: "Nunito Sans", sans-serif;
+  background: white;
+  padding: 1.5rem;
 }
 
-.menu-trigger:hover + .mega-menu-container,
+/* Mostra o menu quando hover no departamento ou no próprio menu */
+.container-rolling li:hover .mega-menu-container,
 .mega-menu-container:hover {
   display: block;
 }
@@ -22,65 +24,85 @@
   border-radius: 6px;
 }
 
+.mega-menu-container .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.mega-menu-container .col-md-3 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
 .mega-menu-container h6 {
   color: #0056d2;
-  font-size: 16px;
-  margin-bottom: 1rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
 .mega-menu-container a {
   display: block;
   color: #555;
-  font-size: 14px;
-  margin-bottom: 0.6rem;
+  font-size: 0.87rem;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .mega-menu-container a:hover {
-  color: #000;
-  text-decoration: underline;
+  color: #005cff;
 }
 
 /* Estilização da imagem do card final */
 .promo-box {
   position: relative;
-  border-radius: 10px;
+  border-radius: 0.62rem;
   overflow: hidden;
   width: 14.75rem;
   height: 18.62rem;
-
-  background-color: black;
 
   & img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-90deg, rgba(0, 0, 0, 0.74902) -20.45%, rgba(0, 0, 0, 0) 138.31%);
+    z-index: 1;
+  }
 }
 
 .promo-text {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 1.25rem;
+  left: 1.25rem;
   color: white;
-  font-size: 18px;
+  font-size: 1.12rem;
   font-weight: bold;
   line-height: 1.4;
+  z-index: 2;
 }
 
 .promo-button {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  bottom: 1.25rem;
+  left: 1.25rem;
   padding: 0.5rem 1rem;
   background-color: transparent;
   border: 1px solid #fff;
   color: white;
-  font-size: 13px;
-  border-radius: 20px;
+  font-size: 0.81rem;
+  border-radius: 1.25rem;
   transition: all 0.2s ease;
+  z-index: 2;
 }
 
 .promo-button:hover {
@@ -88,9 +110,22 @@
   color: #000;
 }
 
-/* Ajustes para espaçamento entre colunas */
-.mega-menu-container .col-md-3 {
-  margin-bottom: 1rem;
+/* Estilos para hover dos departamentos */
+.container-rolling li {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.5rem 1rem;
+}
+
+.container-rolling li:hover {
+  color: #005cff;
+  font-weight: 700;
+}
+
+/* Destaca as categorias do departamento em hover */
+.container-rolling li:hover ~ .mega-menu-container a {
+  color: #005cff;
 }
 
 @media (max-width: 768px) {
