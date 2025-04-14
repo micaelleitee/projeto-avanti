@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 78.6rem;
+  max-width: 80%;
   gap: 1.18rem;
 }
 
@@ -40,7 +40,8 @@
 
 .product-carousel {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
   justify-content: center;
   gap: 15px;

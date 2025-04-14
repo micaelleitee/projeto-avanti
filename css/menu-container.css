@@ -6,11 +6,7 @@
   padding: 1.5rem;
 }
 
-/* Mostra o menu quando hover no departamento ou no próprio menu */
-.container-rolling li:hover .mega-menu-container,
-.mega-menu-container:hover {
-  display: block;
-}
+
 
 .menu-trigger {
   cursor: pointer;
@@ -54,13 +50,15 @@
   color: #005cff;
 }
 
-/* Estilização da imagem do card final */
+
 .promo-box {
   position: relative;
   border-radius: 0.62rem;
   overflow: hidden;
-  width: 14.75rem;
+  width: 100%;
+  max-width: 14.75rem;
   height: 18.62rem;
+  margin: 0 auto;
 
   & img {
     width: 100%;
@@ -110,11 +108,10 @@
   color: #000;
 }
 
-/* Estilos para hover dos departamentos */
+
 .container-rolling li {
   position: relative;
   cursor: pointer;
-  transition: all 0.2s ease;
   padding: 0.5rem 1rem;
 }
 
@@ -123,13 +120,42 @@
   font-weight: 700;
 }
 
-/* Destaca as categorias do departamento em hover */
 .container-rolling li:hover ~ .mega-menu-container a {
   color: #005cff;
 }
 
+
+@media (max-width: 1200px) {
+  .mega-menu-container .col-md-3 {
+    min-width: 30%;
+    max-width: 33.33%;
+  }
+}
+
+@media (max-width: 992px) {
+  .mega-menu-container .col-md-3 {
+    min-width: 45%;
+    max-width: 50%;
+  }
+  
+  .promo-box {
+    max-width: 12rem;
+    height: 15rem;
+  }
+}
+
 @media (max-width: 768px) {
   .mega-menu-container {
-    display: none !important; /* Esconde no mobile */
+    display: none !important;
+  }
+  
+  .mega-menu-container .col-md-3 {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  
+  .promo-box {
+    max-width: 10rem;
+    height: 12rem;
   }
 }
