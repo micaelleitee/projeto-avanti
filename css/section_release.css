@@ -39,31 +39,37 @@
 }
 
 .product-carousel {
+  display: flex;
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
   align-items: center;
   justify-content: center;
   gap: 15px;
 }
 
+.product-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(5, 1fr);
+  overflow-x: hidden;
+  gap: 10px;
+}
+
 .product {
-  position: relative;
   display: flex;
   flex-direction: column;
   height: auto;
-  width: 14.8rem;
+  max-width: 14.8rem;
   background: white;
   border: 1px solid #dddd;
   padding: 10px;
   border-radius: 5px;
   gap: 1rem;
+
   h3 {
     font-family: "Nunito Sans", sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 100%;
-    letter-spacing: 0%;
     color: #303030;
   }
 }
@@ -191,5 +197,10 @@
     height: 0.5rem;
     background-color: #838383;
     border-radius: 100%;
+    transition: background-color 0.3s ease;
+  }
+
+  label.active {
+    background-color: #303030;
   }
 }

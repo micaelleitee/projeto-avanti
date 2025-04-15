@@ -1,51 +1,100 @@
 .section-2 {
   display: flex;
   justify-content: center;
-  padding: 2.5rem;
+  padding: 2.5rem 1rem;
   width: 100%;
   background-color: #dedede;
+  overflow: hidden; /* Previne scroll horizontal */
 }
 
 .section-banner2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
-  width: 73.5rem;
+  width: 100%;
+  max-width: 73.5rem;
   align-items: center;
+  overflow: hidden; /* Previne scroll horizontal */
 }
+
 .icon-localizacao {
   display: flex;
   gap: 1.25rem;
+  flex-wrap: wrap;
 
   & span {
     display: flex;
     align-items: center;
-    width: 22.5rem;
-    height: 7.8rem;
+    width: 100%;
+    max-width: 22.5rem;
+    min-height: 7.8rem;
     font-family: "Nunito", sans-serif;
-    font-size: 1.15rem;
+    font-size: clamp(0.875rem, 1.5vw, 1.15rem);
     font-weight: 400;
     line-height: 140%;
     letter-spacing: 5%;
     color: #4f4f4f;
   }
+  
   & svg {
-    /* flex: none; */
-    width: 5.62rem;
-    height: 5.62rem;
+    width: clamp(3.5rem, 5vw, 5.62rem);
+    height: auto;
   }
 }
 
 .txt-banner2 {
   display: flex;
   gap: 3.12rem;
+  flex-direction: column;
 
   & h2 {
     font-family: "Nunito", sans-serif;
-    font-size: 1.87rem;
+    font-size: clamp(1.25rem, 2vw, 1.87rem);
     font-weight: 700;
     line-height: 140%;
     color: #4f4f4f;
     text-align: center;
+  }
+}
+
+/* Media Queries para section-banner2 */
+@media (max-width: 992px) {
+  .section-banner2 {
+    gap: 2rem;
+  }
+
+  .icon-localizacao {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-banner2 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .txt-banner2 {
+    gap: 2rem;
+  }
+
+  .icon-localizacao {
+    justify-content: center;
+    text-align: center;
+    
+    & span {
+      text-align: center;
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .section-2 {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .txt-banner2 {
+    gap: 1.5rem;
   }
 }
