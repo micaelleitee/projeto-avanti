@@ -6,8 +6,6 @@
   padding: 1.5rem;
 }
 
-
-
 .menu-trigger {
   cursor: pointer;
   padding: 1rem 1.5rem;
@@ -50,7 +48,6 @@
   color: #005cff;
 }
 
-
 .promo-box {
   position: relative;
   border-radius: 0.62rem;
@@ -67,13 +64,17 @@
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(-90deg, rgba(0, 0, 0, 0.74902) -20.45%, rgba(0, 0, 0, 0) 138.31%);
+    background: linear-gradient(
+      -90deg,
+      rgba(0, 0, 0, 0.74902) -20.45%,
+      rgba(0, 0, 0, 0) 138.31%
+    );
     z-index: 1;
   }
 }
@@ -108,19 +109,38 @@
   color: #000;
 }
 
+.container-rolling {
+  & ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 
-.container-rolling li {
-  position: relative;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
+  & li {
+    display: flex;
+    list-style-type: none;
+    position: relative;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 11.8rem;
+  }
+
+  & svg {
+    fill: rgb(48, 48, 48);
+  }
 }
 
 .container-rolling li:hover {
   color: #005cff;
   font-weight: 700;
+
+  & svg {
+    fill: #005cff;
+  }
 }
 
 .container-rolling li:hover ~ .mega-menu-container a {
   color: #005cff;
 }
-
