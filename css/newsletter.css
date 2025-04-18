@@ -1,9 +1,17 @@
 .newsletter {
+  width: 100%;
   margin-bottom: 2.5rem;
   gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .title-newsletter {
+  display: flex;
+  justify-content: center;
+  width: 100%;
   & span {
     font-family: "Nunito Sans";
     font-weight: 700;
@@ -19,12 +27,14 @@
 }
 
 .box-newsletter {
-  text-align: center;
   border-radius: 0.5rem;
   padding: 4rem 7.18rem;
   background-color: #dedede;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1.5rem;
+  width: 70%;
 
   & input[type="text"] {
     border: none;
@@ -72,8 +82,8 @@
 
   & input[type="checkbox"] {
     background-color: white;
-    width: 1rem;
-    height: 1rem;
+    min-width: 1rem;
+    min-height: 1rem;
     border-radius: 0.25rem;
     appearance: none;
     -webkit-appearance: none;
@@ -105,6 +115,29 @@
 
     &:hover {
       background-color: var(--hover-button);
+    }
+  }
+}
+
+/* @media (max-width: 768px) {
+} */
+
+@media (max-width: 992px) {
+  .box-newsletter {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .box-newsletter {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    padding: 2.3rem 1rem;
+
+    & input[type="button"] {
+      width: 80%;
     }
   }
 }

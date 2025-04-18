@@ -1,13 +1,13 @@
 .img-banner-3 {
   position: relative;
   width: 100%;
-  
+
   & img {
     width: 100%;
     height: auto;
     object-fit: cover;
   }
-  
+
   & span {
     position: absolute;
     display: flex;
@@ -26,17 +26,21 @@
     padding: 1rem;
     text-align: center;
   }
-}
 
-/* Media Queries para banner-3 */
-@media (max-width: 768px) {
-  .img-banner-3 span {
-    min-height: 6rem;
+  .img-mobile-view {
+    display: none;
   }
 }
 
-@media (max-width: 576px) {
-  .img-banner-3 span {
-    min-height: 5rem;
+@media (max-width: 768px) {
+  & .img-banner-3 {
+    width: 100%;
+    & .img-mobile-view {
+      display: block;
+      width: 100%;
+    }
+  }
+  & .img-desktop-view {
+    display: none;
   }
 }

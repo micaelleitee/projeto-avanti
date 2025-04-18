@@ -45,6 +45,7 @@
     line-height: 140%;
     letter-spacing: 4%;
     text-transform: uppercase;
+    text-align: center;
   }
 
   p {
@@ -72,14 +73,15 @@
 @media (max-width: 768px) {
   .section-banner {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 2rem;
   }
 
   .img-banner2 {
-    max-width: 100%;
-  }
+    display: flex;
+    justify-content: center;
 
-  .txt-banner2 {
-    text-align: center;
+    .txt-banner2 {
+      text-align: center;
+    }
   }
 }

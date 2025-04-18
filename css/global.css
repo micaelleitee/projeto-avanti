@@ -29,7 +29,7 @@ body {
   display: flex;
   flex-direction: row;
 }
-.gap-05{
+.gap-05 {
   gap: 0.5rem;
 }
 .gap-45 {
@@ -37,7 +37,7 @@ body {
 }
 
 main {
-  padding-top: 9.25rem;
+  padding-top: 10rem;
 }
 
 header {
@@ -48,4 +48,3 @@ header {
   z-index: 1000;
   align-items: center;
 }
-

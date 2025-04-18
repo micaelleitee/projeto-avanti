@@ -204,3 +204,13 @@
     background-color: #303030;
   }
 }
+
+@media (max-width: 768px) {
+  .button-back-carousel {
+    left: -5%;
+  }
+
+  .button-next-carousel {
+    right: -5%;
+  }
+}

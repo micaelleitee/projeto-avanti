@@ -13,18 +13,18 @@
   width: 100%;
   height: 100%;
 
-  .img-background {
+  & .img-background {
     height: 100%;
     width: 100%;
     object-fit: cover;
   }
-  .img-cadeira {
+  & .img-cadeira {
     position: absolute;
     height: 100%;
     width: auto;
     left: 15%;
     bottom: 0;
-    object-fit: contain;
+    top: -7px;
   }
 }
 
@@ -66,18 +66,23 @@
   }
 }
 
+.itens-select2 {
+  display: none;
+}
+
 /* Media Queries para o banner principal */
 @media (max-width: 1200px) {
   .banner {
     min-height: 25rem;
   }
 
-  .img-banners .img-cadeira {
-    left: 10%;
-  }
 }
 
 @media (max-width: 768px) {
+  main {
+    padding-top: 10.5rem;
+  }
+
   .banner {
     min-height: 20rem;
   }
@@ -87,20 +92,43 @@
   }
 
   .banner-text {
+    top: 10%;
     right: 5%;
   }
 }
 
 @media (max-width: 576px) {
-  .banner {
-    min-height: 15rem;
-  }
+  .img-banners {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
 
-  .img-banners .img-cadeira {
-    left: 0;
+    .img-background {
+      height: 19.12rem;
+      width: 100%;
+      object-fit: cover;
+    }
+    .img-cadeira {
+      position: absolute;
+      left: -25%;
+    }
   }
 
   .banner-text {
-    right: 2%;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+
+    .text-sale {
+      display: flex;
+      flex-direction: column;
+    }
+    .itens-select {
+      display: none;
+    }
+    .itens-select2 {
+      display: block;
+    }
   }
 }
