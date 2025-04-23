@@ -194,3 +194,24 @@ function initFooterAccordion() {
 
 // Executa quando o DOM estiver carregado
 document.addEventListener("DOMContentLoaded", initFooterAccordion)
+
+const inputSeach = document.querySelector(".search-bar")
+const btnBuscar = document.querySelector(".search-input-icon")
+const searchContainer = document.querySelector(".search-container-main")
+const contentMain = document.querySelector(".content-main")
+
+function showNewDiv() {
+  contentMain.style.display = "none"
+  searchContainer.style.display = "block"
+}
+
+inputSeach.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    mostrarNovaDiv()
+  }
+})
+
+btnBuscar.addEventListener("click", showNewDiv)
+
+
+const a = []
