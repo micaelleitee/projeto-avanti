@@ -11,28 +11,22 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 24.3rem;
+  max-height: 31.8rem;
+  height: clamp(24.3rem, 50vh, 31.8rem);
 
   & .img-background {
     height: 100%;
     width: 100%;
     object-fit: cover;
   }
-  & .img-cadeira {
-    position: absolute;
-    height: 100%;
-    width: auto;
-    left: 15%;
-    bottom: 0;
-    top: -7px;
-  }
 }
 
 .banner-text {
   position: absolute;
-  top: 25%;
+  top: 50%;
   right: 10%;
-  gap: 12px;
+  transform: translateY(-50%);
   & strong {
     font-family: "Nunito";
     font-size: clamp(3rem, 8vw, 6.25rem);
@@ -52,7 +46,6 @@
     font-family: "Nunito";
     font-weight: 700;
     font-size: clamp(1rem, 2vw, 1.56rem);
-    letter-spacing: 0.3em;
     text-transform: uppercase;
     color: #005cff;
   }
@@ -76,6 +69,15 @@
     min-height: 25rem;
   }
 
+  .banner-text {
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+  }
+
+  .img-banners .img-cadeira {
+    left: -10%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -87,47 +89,64 @@
     min-height: 20rem;
   }
 
-  .img-banners .img-cadeira {
-    left: 5%;
+  .img-banners {
+    min-height: 24.3rem;
+
+    & .img-cadeira {
+      left: -35%;
+    }
   }
 
   .banner-text {
-    top: 10%;
-    right: 5%;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+
+    & .text-sale {
+      display: flex;
+      flex-direction: column;
+    }
+    & .itens-select {
+      display: none;
+    }
+    & .itens-select2 {
+      display: block;
+    }
   }
 }
 
 @media (max-width: 576px) {
   .img-banners {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    height: 100%;
+    min-height: 24.3rem;
 
-    .img-background {
-      height: 19.12rem;
+    & .img-background {
+      height: 100%;
       width: 100%;
       object-fit: cover;
     }
-    .img-cadeira {
+    & .img-cadeira {
       position: absolute;
-      left: -25%;
+      left: -75%;
+      height: 100%;
     }
   }
 
   .banner-text {
-    top: 20%;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
 
-    .text-sale {
+    & .text-sale {
       display: flex;
       flex-direction: column;
     }
-    .itens-select {
+    & .itens-select {
       display: none;
     }
-    .itens-select2 {
+    & .itens-select2 {
       display: block;
     }
   }

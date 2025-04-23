@@ -23,29 +23,33 @@ function mousepass() {
 mousepass()
 
 function updateCardLayout() {
-  const container = document.querySelector(".product-container")
-  const width = window.innerWidth
-  let columns = 5
+  const lancamentosSections = document.querySelectorAll(".lancamentos")
 
-  if (width < 1200) {
-    columns = 4
-  }
-  if (width < 900) {
-    columns = 3
-  }
-  if (width < 600) {
-    columns = 2
-  }
+  lancamentosSections.forEach((section) => {
+    const container = section.querySelector(".product-container")
+    const width = window.innerWidth
+    let columns = 5
 
-  container.style.gridTemplateColumns = `repeat(${columns}, 1fr)`
-  updateCarouselPoints(columns)
+    if (width < 1200) {
+      columns = 4
+    }
+    if (width < 900) {
+      columns = 3
+    }
+    if (width < 600) {
+      columns = 2
+    }
+
+    container.style.gridTemplateColumns = `repeat(${columns}, 1fr)`
+    updateCarouselPoints(section, columns)
+  })
 }
 
-function updateCarouselPoints(visibleCards) {
-  const container = document.querySelector(".product-container")
+function updateCarouselPoints(section, visibleCards) {
+  const container = section.querySelector(".product-container")
   const totalCards = container.children.length
   const totalGroups = Math.ceil(totalCards / visibleCards)
-  const pointsContainer = document.querySelector(".carousel-points")
+  const pointsContainer = section.querySelector(".carousel-points")
 
   // Limpa os pontos existentes
   pointsContainer.innerHTML = ""
@@ -59,10 +63,8 @@ function updateCarouselPoints(visibleCards) {
   }
 }
 
-let currentGroup = 0
-
-function scrollLeft() {
-  const container = document.querySelector(".product-container")
+function scrollLeft(section) {
+  const container = section.querySelector(".product-container")
   const width = window.innerWidth
   let visibleCards = 5
 
@@ -72,14 +74,15 @@ function scrollLeft() {
 
   container.scrollBy({ left: -150 * visibleCards, behavior: "smooth" })
 
+  const currentGroup = parseInt(section.dataset.currentGroup || 0)
   if (currentGroup > 0) {
-    currentGroup--
-    updateActivePoint()
+    section.dataset.currentGroup = currentGroup - 1
+    updateActivePoint(section)
   }
 }
 
-function scrollRight() {
-  const container = document.querySelector(".product-container")
+function scrollRight(section) {
+  const container = section.querySelector(".product-container")
   const width = window.innerWidth
   let visibleCards = 5
 
@@ -91,34 +94,42 @@ function scrollRight() {
 
   const totalCards = container.children.length
   const totalGroups = Math.ceil(totalCards / visibleCards)
+  const currentGroup = parseInt(section.dataset.currentGroup || 0)
 
   if (currentGroup < totalGroups - 1) {
-    currentGroup++
-    updateActivePoint()
+    section.dataset.currentGroup = currentGroup + 1
+    updateActivePoint(section)
   }
 }
 
-function updateActivePoint() {
-  const points = document.querySelectorAll(".carousel-points label")
+function updateActivePoint(section) {
+  const currentGroup = parseInt(section.dataset.currentGroup || 0)
+  const pointsContainer = section.querySelector(".carousel-points")
+  const points = pointsContainer.querySelectorAll("label")
+
   points.forEach((point, index) => {
     point.classList.toggle("active", index === currentGroup)
   })
 }
 
+// Inicialização
 updateCardLayout()
 
 window.addEventListener("resize", updateCardLayout)
 
-const buttonBack = document.getElementsByClassName("button-back-carousel")[0]
-const buttonNext = document.getElementsByClassName("button-next-carousel")[0]
+// Adiciona eventos para todas as seções de lançamentos
+document.querySelectorAll(".lancamentos").forEach((section) => {
+  const buttonBack = section.querySelector(".button-back-carousel")
+  const buttonNext = section.querySelector(".button-next-carousel")
 
-if (buttonBack) {
-  buttonBack.addEventListener("click", scrollLeft)
-}
+  if (buttonBack) {
+    buttonBack.addEventListener("click", () => scrollLeft(section))
+  }
 
-if (buttonNext) {
-  buttonNext.addEventListener("click", scrollRight)
-}
+  if (buttonNext) {
+    buttonNext.addEventListener("click", () => scrollRight(section))
+  }
+})
 
 const HeaderListen = document.querySelector("header")
 const MainListen = document.querySelector("main")

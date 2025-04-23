@@ -1,6 +1,7 @@
 .section-2 {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 2.5rem 1rem;
   width: 100%;
   background-color: #dedede;
@@ -13,8 +14,18 @@
   gap: 2.5rem;
   width: 100%;
   max-width: 73.5rem;
+  margin: 0 auto;
   align-items: center;
   overflow: hidden; /* Previne scroll horizontal */
+}
+
+.img-banner2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
 }
 
 .icon-localizacao {
@@ -61,7 +72,7 @@
 @media (max-width: 992px) {
   .section-banner2 {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 2rem;
 
     & .img-banner3 {
@@ -76,7 +87,6 @@
 
 @media (max-width: 768px) {
   .section-banner2 {
-    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
