@@ -252,3 +252,31 @@ const clickLogo = document.querySelector(".logo-avanti")
 clickLogo.addEventListener("click", () => {
   window.location.reload()
 })
+
+function mousepassList() {
+  const ListContentHover = document.querySelectorAll(".listContentHover")
+  const contentList = document.querySelector(".hover-content-list")
+  let hideTimeout
+
+  function show() {
+    clearTimeout(hideTimeout)
+    contentList.style.display = "flex"
+  }
+
+  function hide() {
+    hideTimeout = setTimeout(() => {
+      contentList.style.display = "none"
+    }, 100)
+  }
+
+  // Itera sobre cada elemento da lista e adiciona os eventos
+  ListContentHover.forEach((element) => {
+    element.addEventListener("mouseover", show)
+    element.addEventListener("mouseout", hide)
+  })
+
+  contentList.addEventListener("mouseover", show)
+  contentList.addEventListener("mouseout", hide)
+}
+
+mousepassList()

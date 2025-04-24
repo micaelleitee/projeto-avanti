@@ -141,6 +141,16 @@
   width: 100%;
   gap: 1rem;
   flex-wrap: wrap;
+  cursor: pointer;
+
+  & li {
+    list-style-type: none;
+  }
+
+  & li:hover {
+    color: #005cff;
+    font-weight: 600;
+  }
 
   & strong {
     line-height: 22px;
@@ -195,6 +205,18 @@
   margin-top: 1rem;
 }
 
+.hover-content-list {
+  position: relative;
+  overflow: hidden;
+  display: none;
+  align-items: center;
+  width: 78.81rem;
+  height: 20.56rem;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px -1px #0000001a;
+  margin-top: 1rem;
+}
+
 .container-rolling {
   display: flex;
   justify-content: center;
@@ -207,7 +229,7 @@
 }
 
 .container-rolling::-webkit-scrollbar {
-  width: 4px;
+  width: 5px;
 }
 
 .container-rolling::-webkit-scrollbar-track {
@@ -216,7 +238,7 @@
 
 .container-rolling::-webkit-scrollbar-thumb {
   background-color: #cecece;
-  border-radius: 20px;
+  border-radius: 100px;
 }
 
 /* Media Queries */
