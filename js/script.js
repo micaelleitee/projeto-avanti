@@ -22,39 +22,34 @@ function mousepass() {
 
 mousepass()
 
+// Função principal para atualizar o layout dos cards
 function updateCardLayout() {
-  const lancamentosSections = document.querySelectorAll(".lancamentos")
+  const releasesSections = document.querySelectorAll(".releases")
 
-  lancamentosSections.forEach((section) => {
+  releasesSections.forEach((section) => {
     const container = section.querySelector(".product-container")
     const width = window.innerWidth
     let columns = 5
 
-    if (width < 1200) {
-      columns = 4
-    }
-    if (width < 900) {
-      columns = 3
-    }
-    if (width < 600) {
-      columns = 2
-    }
+    if (width < 1200) columns = 4
+    if (width < 900) columns = 3
+    if (width < 600) columns = 2
 
-    container.style.gridTemplateColumns = `repeat(${columns}, 1fr)`
+    // Atualiza pontos do carrossel e configura navegação
     updateCarouselPoints(section, columns)
+    setupCarouselNavigation(section, columns)
   })
 }
 
+// Atualiza os pontos de navegação do carrossel
 function updateCarouselPoints(section, visibleCards) {
   const container = section.querySelector(".product-container")
   const totalCards = container.children.length
   const totalGroups = Math.ceil(totalCards / visibleCards)
   const pointsContainer = section.querySelector(".carousel-points")
 
-  // Limpa os pontos existentes
   pointsContainer.innerHTML = ""
 
-  // Cria novos pontos baseado no número de grupos
   for (let i = 0; i < totalGroups; i++) {
     const label = document.createElement("label")
     label.className = "dynamic-label"
@@ -63,45 +58,56 @@ function updateCarouselPoints(section, visibleCards) {
   }
 }
 
+// Configura a navegação do carrossel com cálculo preciso
+function setupCarouselNavigation(section, visibleCards) {
+  const container = section.querySelector(".product-container")
+  const cards = container.querySelectorAll(".product")
+
+  if (cards.length === 0) return
+
+  // Calcula a largura total de um grupo de cards visíveis incluindo o gap
+  const cardStyle = window.getComputedStyle(cards[0])
+  const containerStyle = window.getComputedStyle(container)
+  const cardWidth = cards[0].offsetWidth
+  const gap = parseFloat(containerStyle.gap)
+  const scrollAmount = (cardWidth + gap) * visibleCards
+
+  // Armazena no dataset para uso nas funções de scroll
+  section.dataset.scrollAmount = scrollAmount
+  section.dataset.visibleCards = visibleCards
+  section.dataset.currentGroup = 0 // Inicializa o grupo atual
+}
+
+// Função para navegar para a esquerda
 function scrollLeft(section) {
   const container = section.querySelector(".product-container")
-  const width = window.innerWidth
-  let visibleCards = 5
-
-  if (width < 1200) visibleCards = 4
-  if (width < 900) visibleCards = 3
-  if (width < 600) visibleCards = 2
-
-  container.scrollBy({ left: -150 * visibleCards, behavior: "smooth" })
-
+  const scrollAmount = parseFloat(section.dataset.scrollAmount)
   const currentGroup = parseInt(section.dataset.currentGroup || 0)
+
   if (currentGroup > 0) {
+    container.scrollBy({ left: -scrollAmount, behavior: "smooth" })
     section.dataset.currentGroup = currentGroup - 1
     updateActivePoint(section)
   }
 }
 
+// Função para navegar para a direita
 function scrollRight(section) {
   const container = section.querySelector(".product-container")
-  const width = window.innerWidth
-  let visibleCards = 5
-
-  if (width < 1200) visibleCards = 4
-  if (width < 900) visibleCards = 3
-  if (width < 600) visibleCards = 2
-
-  container.scrollBy({ left: 150 * visibleCards, behavior: "smooth" })
-
-  const totalCards = container.children.length
-  const totalGroups = Math.ceil(totalCards / visibleCards)
+  const scrollAmount = parseFloat(section.dataset.scrollAmount)
+  const visibleCards = parseInt(section.dataset.visibleCards)
   const currentGroup = parseInt(section.dataset.currentGroup || 0)
+  const totalCards = container.querySelectorAll(".product").length
+  const totalGroups = Math.ceil(totalCards / visibleCards)
 
   if (currentGroup < totalGroups - 1) {
+    container.scrollBy({ left: scrollAmount, behavior: "smooth" })
     section.dataset.currentGroup = currentGroup + 1
     updateActivePoint(section)
   }
 }
 
+// Atualiza o ponto de navegação ativo
 function updateActivePoint(section) {
   const currentGroup = parseInt(section.dataset.currentGroup || 0)
   const pointsContainer = section.querySelector(".carousel-points")
@@ -112,70 +118,89 @@ function updateActivePoint(section) {
   })
 }
 
+// Configura eventos de scroll para atualizar pontos ativos
+function setupScrollEvents() {
+  document.querySelectorAll(".releases").forEach((section) => {
+    const container = section.querySelector(".product-container")
+    const visibleCards = parseInt(section.dataset.visibleCards) || 5
+
+    container.addEventListener(
+      "scroll",
+      () => {
+        const scrollPosition = container.scrollLeft
+        const cardWidth = container.firstElementChild?.offsetWidth || 0
+        const currentGroup = Math.round(
+          scrollPosition / (cardWidth * visibleCards)
+        )
+
+        if (!isNaN(currentGroup)) {
+          section.dataset.currentGroup = currentGroup
+          updateActivePoint(section)
+        }
+      },
+      { passive: true }
+    )
+  })
+}
+
 // Inicialização
 updateCardLayout()
+setupScrollEvents()
 
-window.addEventListener("resize", updateCardLayout)
+window.addEventListener("resize", () => {
+  updateCardLayout()
+  setupScrollEvents()
+})
 
-// Adiciona eventos para todas as seções de lançamentos
-document.querySelectorAll(".lancamentos").forEach((section) => {
+// Configura botões de navegação
+document.querySelectorAll(".releases").forEach((section) => {
   const buttonBack = section.querySelector(".button-back-carousel")
   const buttonNext = section.querySelector(".button-next-carousel")
 
   if (buttonBack) {
     buttonBack.addEventListener("click", () => scrollLeft(section))
   }
-
   if (buttonNext) {
     buttonNext.addEventListener("click", () => scrollRight(section))
   }
 })
 
+// Restante do seu código (footer accordion e search) permanece igual
 const HeaderListen = document.querySelector("header")
 const MainListen = document.querySelector("main")
 
 function initFooterAccordion() {
-  // Seleciona todas as seções do footer que precisam virar acordeon na versão mobile
   const footerSections = document.querySelectorAll(".mobile-view .header-links")
 
   footerSections.forEach((section) => {
-    // Cria um container para o header
     const headerContainer = document.createElement("div")
     headerContainer.className = "header-container"
 
-    // Pega o h4 existente
     const h4 = section.querySelector("h4")
     if (!h4) return
 
-    // Cria o botão do acordeon
     const accordionButton = document.createElement("button")
     accordionButton.className = "accordion-button"
     accordionButton.setAttribute("type", "button")
     accordionButton.setAttribute("aria-label", "Toggle section")
 
-    // Move o h4 e adiciona o botão ao container
     headerContainer.appendChild(h4)
     headerContainer.appendChild(accordionButton)
 
-    // Envolve o conteúdo em uma div para animação
     const content = document.createElement("div")
     content.className = "accordion-content"
 
-    // Move todo o conteúdo exceto o header para dentro da div de conteúdo
     while (section.children.length > 1) {
       content.appendChild(section.children[1])
     }
 
-    // Limpa a seção e adiciona os novos elementos
     section.innerHTML = ""
     section.appendChild(headerContainer)
     section.appendChild(content)
 
-    // Adiciona o evento de click no botão
     accordionButton.addEventListener("click", () => {
       const isActive = accordionButton.classList.contains("active")
 
-      // Fecha todos os acordeons
       document.querySelectorAll(".accordion-button").forEach((btn) => {
         btn.classList.remove("active")
       })
@@ -183,7 +208,6 @@ function initFooterAccordion() {
         content.classList.remove("active")
       })
 
-      // Se não estava ativo, abre este
       if (!isActive) {
         accordionButton.classList.add("active")
         content.classList.add("active")
@@ -192,7 +216,6 @@ function initFooterAccordion() {
   })
 }
 
-// Executa quando o DOM estiver carregado
 document.addEventListener("DOMContentLoaded", initFooterAccordion)
 
 const inputSeach = document.querySelector(".search-bar")
@@ -202,16 +225,22 @@ const contentMain = document.querySelector(".content-main")
 
 function showNewDiv() {
   contentMain.style.display = "none"
-  searchContainer.style.display = "block"
+  searchContainer.style.display = "flex"
 }
 
 inputSeach.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
-    mostrarNovaDiv()
+    updateText()
+    showNewDiv()
   }
 })
 
-btnBuscar.addEventListener("click", showNewDiv)
+btnBuscar.addEventListener("click", function () {
+  updateText()
+  showNewDiv()
+})
 
-
-const a = []
+function updateText() {
+  const spanChanged = document.querySelector(".textSearched")
+  spanChanged.textContent = inputSeach.value
+}
