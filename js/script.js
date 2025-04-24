@@ -247,3 +247,8 @@ function updateText() {
   const spanChanged = document.querySelector(".textSearched")
   spanChanged.textContent = inputSeach.value
 }
+
+const clickLogo = document.querySelector(".logo-avanti")
+clickLogo.addEventListener("click", () => {
+  window.location.reload()
+})
