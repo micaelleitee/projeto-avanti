@@ -45,15 +45,6 @@
   z-index: 2;
 }
 
-/* .product-container {
-  display: grid;
-  grid-auto-flow: column;
-  gap: 20px;
-  padding: 10px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-} */
 
 .product-container {
   display: grid;

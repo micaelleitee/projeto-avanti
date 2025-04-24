@@ -26,7 +26,7 @@ mousepass()
 function updateCardLayout() {
   const releasesSections = document.querySelectorAll(".releases")
 
-  releasesSections.forEach((section) => {
+  releasesSections.forEach((section, index) => {
     const container = section.querySelector(".product-container")
     const width = window.innerWidth
     let columns = 5
@@ -38,6 +38,10 @@ function updateCardLayout() {
     // Atualiza pontos do carrossel e configura navegação
     updateCarouselPoints(section, columns)
     setupCarouselNavigation(section, columns)
+
+    // Inicializa o estado da seção
+    section.dataset.sectionIndex = index
+    section.dataset.currentGroup = 0
   })
 }
 
@@ -75,7 +79,6 @@ function setupCarouselNavigation(section, visibleCards) {
   // Armazena no dataset para uso nas funções de scroll
   section.dataset.scrollAmount = scrollAmount
   section.dataset.visibleCards = visibleCards
-  section.dataset.currentGroup = 0 // Inicializa o grupo atual
 }
 
 // Função para navegar para a esquerda
