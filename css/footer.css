@@ -197,6 +197,16 @@
   }
 }
 
+@media (max-width: 768px) {
+  .main-footer {
+    padding: 1rem;
+  }
+
+  .footer-content {
+    padding: 1rem;
+  }
+}
+
 @media (max-width: 576px) {
   .main-footer {
     padding: 1rem;

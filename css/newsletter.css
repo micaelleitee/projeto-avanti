@@ -28,13 +28,13 @@
 
 .box-newsletter {
   border-radius: 0.5rem;
-  padding: 4rem 7.18rem;
+  padding: 4rem 7rem;
   background-color: #dedede;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
-  width: 70%;
+  gap: 1rem;
+  width: 80%;
 
   & input[type="text"] {
     border: none;
@@ -119,8 +119,12 @@
   }
 }
 
-/* @media (max-width: 768px) {
-} */
+@media (max-width: 1200px) {
+  .box-newsletter {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
 @media (max-width: 992px) {
   .box-newsletter {

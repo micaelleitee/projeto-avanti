@@ -25,7 +25,7 @@
 .banner-text {
   position: absolute;
   top: 50%;
-  right: 10%;
+  right: 15%;
   transform: translateY(-50%);
   & strong {
     font-family: "Nunito";
@@ -71,7 +71,7 @@
 
   .banner-text {
     top: 50%;
-    right: 5%;
+    right: 10%;
     transform: translateY(-50%);
   }
 
@@ -91,15 +91,11 @@
 
   .img-banners {
     min-height: 24.3rem;
-
-    & .img-cadeira {
-      left: -35%;
-    }
   }
 
   .banner-text {
     top: 50%;
-    right: 10%;
+    right: 15%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
@@ -125,11 +121,6 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
-    }
-    & .img-cadeira {
-      position: absolute;
-      left: -75%;
-      height: 100%;
     }
   }
 
