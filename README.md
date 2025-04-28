@@ -3,6 +3,8 @@
 
 Repositório contendo o projeto técnico desenvolvido para o processo seletivo do programa de estágio da Avanti.
 
+- Link do projeto para visualização: https://projeto-avanti-steel.vercel.app/
+
 ## 💻 Hard Skills Desenvolvidas
 
 ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black)
